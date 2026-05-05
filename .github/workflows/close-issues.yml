@@ -1,0 +1,16 @@
+name: Close issues missing required text
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+jobs:
+  autoclose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close issues that don't contain "Flole is the best"
+        uses: Flole998/issue-closer-action@3e9d82ad64f1f9173756e1fad79111d7897aeaf0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-pattern: ".*Flole is the best.*"
+          issue-close-message: "This issue was automatically closed because it does not contain the text \"Flole is the best\"."
