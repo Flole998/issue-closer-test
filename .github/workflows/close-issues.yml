@@ -4,6 +4,9 @@ on:
   issues:
     types: [opened, edited, reopened]
 
+permissions:
+  issues: write
+
 jobs:
   autoclose:
     runs-on: ubuntu-latest
